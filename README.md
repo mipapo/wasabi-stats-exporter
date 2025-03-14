@@ -50,6 +50,24 @@ http://localhost:8080/metrics
 ## Environment Variables
 - `WASABI_API_KEYS`: A comma-separated list of Wasabi API keys in the format `account_name=API_KEY`.
 
+## Setup in Wasabi account
+# Creating the policy and user in every individual Wasabi account
+
+Create the policy (if it doesn't exist)
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "aws-portal:ViewBilling",
+      "Resource": "*"
+    }
+  ]
+}
+``` 
+Create the user (Programmatic (create API keys)) and add the key to the `WASABI_API_KEYS`
+
 ## License
 This project is licensed under the MIT License.
 
