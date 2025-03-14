@@ -1,11 +1,10 @@
-FROM golang:1.21-alpine AS builder
+FROM golang:1.22-alpine AS builder
 
 WORKDIR /app
 
-COPY . .
+COPY main.go go.mod go.sum .
 
-RUN go mod tidy && \
-    go build -o wasabi_exporter
+RUN go build -o /app/wasabi_exporter main.go
 
 FROM alpine:latest
 
